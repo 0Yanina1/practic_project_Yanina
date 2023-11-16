@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table)
         {
             $table->renameColumn('i_name', 'last_name');
-            $table->renameColumn('f_name', 'first_name');
+            $table->renameColumn('first_name', 'first_name');
     });
     }
 

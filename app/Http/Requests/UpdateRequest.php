@@ -29,6 +29,7 @@ class UpdateRequest extends FormRequest
             'email'=> 'string',
             'password'=> 'string',
             'role_name'=>'',
+            'password_confirm'=> '',
         ];
     }
 }

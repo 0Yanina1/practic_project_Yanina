@@ -23,6 +23,17 @@ class UpdateController extends BaseController
         foreach ($model_roles as $role){
             $user->assignRole($role);
         }
-        return redirect()->route('user.show',$user->id);
+        return redirect()->route('user.index');
+    }
+
+    public function update_password(UpdateRequest $request, User $user){
+
+        $data = $request->validated();
+        if ($data['password_confirm'])
+        {
+            return redirect()->route('user.edit_pass', compact('user'))->with('error', "Пароли не совпадают");
+        }
+        $this->service->update($user, $data);
+        return redirect()->route('user.index');
     }
 }
