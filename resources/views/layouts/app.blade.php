@@ -49,9 +49,12 @@
                                 </li>
                             @endif
                         @else
+                            <a class="nav-link" href="{{route('user.index')}}">Posts</a>
                             <li class="nav-item dropdown">
+
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                                    {{ Auth::user()->i_name }}
+                                    {{ Auth::user()->f_name }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
