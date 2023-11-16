@@ -8,8 +8,13 @@ class Service
 {
     public function store($data)
     {
+        $model_roles = $data['role_name'];
+        unset ($data['role_name']);
+        $users = User::create($data);
+        foreach ($model_roles as $role){
+            $users->assignRole($role);
+        }
 
-        $post = User::create($data);
     }
     public function update($post, $data)
     {

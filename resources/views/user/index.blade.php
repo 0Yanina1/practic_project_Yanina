@@ -1,9 +1,9 @@
-@extends('layouts.main')
+@extends('layouts.app')
 @section('content')
-    <div>
+    <div class = "container">
         <div>
-            <a class="btn btn-dark" href="{{route('user.create')}}">Добавить</a>
-            <table class="table">
+
+            <table class="table mt-3">
                 <thead class="thead-dark">
                 <tr>
                     <th scope="col">Фамилия</th>
@@ -16,8 +16,8 @@
                 <tbody>
                 @foreach($users as $user)
                 <tr>
-                    <td><a href="{{route('user.show', $user->id)}}">{{$user->f_name}}</a></td>
-                    <td><a href="{{route('user.show', $user->id)}}">{{$user->i_name}}</a></td>
+                    <td><a href="{{route('user.show', $user->id)}}">{{$user->last_name}}</a></td>
+                    <td><a href="{{route('user.show', $user->id)}}">{{$user->first_name}}</a></td>
                     <td><a href="{{route('user.show', $user->id)}}">{{$user->m_name}}</a></td>
                     <td><a href="{{route('user.show', $user->id)}}">{{$user->phone}}</a></td>
                     <td><a href="{{route('user.show', $user->id)}}">{{$user->email}}</a></td>
@@ -27,6 +27,9 @@
                 </tbody>
 
             </table>
+            @hasexactroles('admin|manager|developer')
+                <a class="btn btn-dark" href="{{route('user.create')}}">Добавить</a>
+            @endhasexactroles
         </div>
     </div>
 @endsection

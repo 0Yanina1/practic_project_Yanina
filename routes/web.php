@@ -26,13 +26,13 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::get('/users', [IndexController::class,'__invoke'])->name('user.index');
-Route::get('/users/create', [CreateController::class,'__invoke'])->name('user.create');
-Route::post('/users', [StoreController::class,'__invoke'])->name('user.store');
-Route::get('/users/{user}', [ShowController::class,'__invoke'])->name('user.show');
-Route::get('/users/{user}/edit', [EditController::class,'__invoke'])->name('user.edit');
-Route::patch('/users/{user}', [UpdateController::class,'__invoke'])->name('user.update');
-Route::delete('/users/{user}', [DestroyController::class,'__invoke'])->name('user.delete');
+Route::get('/users', [IndexController::class,'__invoke'])->name('user.index')->middleware('auth');;
+Route::get('/users/create', [CreateController::class,'__invoke'])->name('user.create')->middleware('auth');;
+Route::post('/users', [StoreController::class,'__invoke'])->name('user.store')->middleware('auth');;
+Route::get('/users/{user}', [ShowController::class,'__invoke'])->name('user.show')->middleware('auth');;
+Route::get('/users/{user}/edit', [EditController::class,'__invoke'])->name('user.edit')->middleware('auth');;
+Route::patch('/users/{user}', [UpdateController::class,'__invoke'])->name('user.update')->middleware('auth');;
+Route::delete('/users/{user}', [DestroyController::class,'__invoke'])->name('user.delete')->middleware('auth');;
 Route::get('/home', [\App\Http\Controllers\User\HomeController::class, 'index'])->name('home');
 
 Auth::routes();

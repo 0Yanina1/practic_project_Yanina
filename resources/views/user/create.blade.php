@@ -1,20 +1,21 @@
-@extends('layouts.main')
+@extends('layouts.app')
 @section('content')
+    <div class = "container">
     <div>
         <div>
             <form action="{{route('user.store')}}" method="post">
                 @csrf
                 <div class="form-group">
-                    <label for="f_name" class="form-label">Фамилия</label>
-                    <input value="{{old('f_name')}}" type="text" name="f_name" class="form-control" id="f_name" placeholder="Фамилия">
-                    @error('f_name')
+                    <label for="last_name" class="form-label">Фамилия</label>
+                    <input value="{{old('last_name')}}" type="text" name="last_name" class="form-control" id="last_name" placeholder="Фамилия">
+                    @error('last_name')
                     <p class="text-danger">{{$message}}</p>
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="i_name" class="form-label">Имя</label>
-                    <input value="{{old('i_name')}}" type="text" name="i_name" class="form-control" id="i_name" placeholder="Имя">
-                    @error('i_name')
+                    <label for="first_name" class="form-label">Имя</label>
+                    <input value="{{old('first_name')}}" type="text" name="first_name" class="form-control" id="first_name" placeholder="Имя">
+                    @error('first_name')
                     <p class="text-danger">{{$message}}</p>
                     @enderror
                 </div>
@@ -45,6 +46,14 @@
                     @error('password')
                     <p class="text-danger">{{$message}}</p>
                     @enderror
+                </div>
+                <div class="form-group mb-3">
+                    <label for="role">Roles</label>
+                    <select multiple class="form-control" id="role" name = "role_name[]">
+                        @foreach($roles as $role)
+                        <option value="{{$role->name}}">{{$role->name}}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <button type="submit" class="btn btn-dark">Добавить</button>
 
