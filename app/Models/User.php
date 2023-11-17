@@ -92,12 +92,12 @@ class User extends Authenticatable
 
     public function getFName(): string
     {
-        return $this->f_name;
+        return $this->first_name;
     }
 
-    public function setFName(string $f_name): void
+    public function setFName(string $first_name): void
     {
-        $this->f_name = $f_name;
+        $this->first_name = $first_name;
     }
 
     public function getFirstName(): string

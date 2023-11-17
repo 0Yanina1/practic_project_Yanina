@@ -53,7 +53,7 @@
                         @endforeach
                     </select>
                 </div>
-                <button type="submit" class="btn btn-dark">Редактировать</button>
+                <button type="submit" class="btn btn-dark">Сохранить</button>
 
             </form>
     </div>

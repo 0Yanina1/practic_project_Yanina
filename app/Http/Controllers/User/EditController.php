@@ -13,4 +13,10 @@ EditController extends BaseController
         $roles = Role::all();
         return view('user.edit',compact('user', 'roles'));
     }
+
+    public function edit_pass(User $user)
+    {
+
+        return view('user.edit_pass',compact('user', ));
+    }
 }

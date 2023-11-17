@@ -26,12 +26,12 @@
                         </div>
                         {{--                            ФАМИЛИЯ--}}
                         <div class="row mb-3">
-                            <label for="f_name" class="col-md-4 col-form-label text-md-end">{{ __('Фамилия') }}</label>
+                            <label for="first_name" class="col-md-4 col-form-label text-md-end">{{ __('Фамилия') }}</label>
 
                             <div class="col-md-6">
-                                <input id="f_name" type="text" class="form-control @error('f_name') is-invalid @enderror" name="f_name" value="{{ old('f_name') }}" required autocomplete="f_name" autofocus>
+                                <input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}" required autocomplete="first_name" autofocus>
 
-                                @error('f_name')
+                                @error('first_name')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
